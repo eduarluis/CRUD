@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Home;
+use Mail;
+use App\Mail\SendMail;
 
 //Requests
 use App\Http\Requests\CrudRequest;
@@ -40,7 +42,9 @@ class CrudController extends Controller
     public function store(CrudRequest $request)
     {
         $home = Home::create($request->all());
-        return redirect()->route('crud.index');        
+        
+        $this->MailSend('Create', 'Creating a new post', '');
+        return redirect()->route('crud.index'); 
     }
 
     /**
@@ -77,6 +81,9 @@ class CrudController extends Controller
     {
         $home = Home::find($id);
         $home->update($request->all());
+
+        $this->MailSend('Update', 'Updating the post', $id);
+
         return redirect()->route('crud.index');     
     }
 
@@ -90,6 +97,20 @@ class CrudController extends Controller
     {
         $home = Home::find($id);
         $home->delete();
+
+        $this->MailSend('Delete', 'Deleting the post', $id);
+
         return redirect()->route('crud.index');
+    }
+
+    public function MailSend($sub, $mes, $id)
+    {
+        $newId = $id == null ? '' : ' - '.$id;
+
+        $subject = $sub;
+        $messaje = $mes . $newId;
+        $date = date('Y-m-d');
+        
+        Mail::to(Auth()->user()->email)->send( new SendMail($subject, $messaje, $date) );
     }
 }
