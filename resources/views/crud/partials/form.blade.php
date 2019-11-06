@@ -5,7 +5,7 @@
             [
                 'class' => 'form-control square',
                 'placeholder' => 'Enter your chars, max 32',
-                'maxlength' => 32,
+                // 'maxlength' => 32,
                 'minlength' => 1,
             ])
         }}
@@ -24,7 +24,7 @@
             [
                 'class' => 'form-control square', 
                 'placeholder' => 'Enter your chars, max 65535',
-                'maxlength' => 65535,
+                // 'maxlength' => 65535,
                 'minlength' => 1,
             ]) 
         !!}
