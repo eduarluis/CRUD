@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $lists = App\Home::all();
+    return view('home', compact('lists'));
 });
+
+Route::resource('/home', 'HomeController');
