@@ -15,8 +15,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'verified', 'auth'], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/crud', 'CrudController');
+    Route::resource('/crud', 'CrudController');
+});
