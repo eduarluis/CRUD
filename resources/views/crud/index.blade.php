@@ -52,6 +52,7 @@
                             @endif()
                         </tbody>
                     </table>
+                    {{ $lists->links() }}
                 </div>
             </div>
         </div>

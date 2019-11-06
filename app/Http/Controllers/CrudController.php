@@ -17,10 +17,9 @@ class CrudController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Home $model)
     {
-        $lists = Home::all(); 
-        return view('crud.index',compact('lists'));
+        return view('crud.index',['lists' => $model->paginate(5)]);
     }
 
     /**
