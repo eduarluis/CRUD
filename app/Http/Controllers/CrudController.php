@@ -43,7 +43,7 @@ class CrudController extends Controller
         $home = Home::create($request->all());
         
         $this->MailSend('Create', 'Creating a new post', '');
-        return redirect()->route('crud.index'); 
+        return redirect()->route('crud.index')->withStatus(__('Created With Success and Sent Mail!')); 
     }
 
     /**
@@ -83,7 +83,7 @@ class CrudController extends Controller
 
         $this->MailSend('Update', 'Updating the post', $id);
 
-        return redirect()->route('crud.index');     
+        return redirect()->route('crud.index')->withStatus(__('Updated Successfully and Sent Mail!'));     
     }
 
     /**
@@ -99,7 +99,7 @@ class CrudController extends Controller
 
         $this->MailSend('Delete', 'Deleting the post', $id);
 
-        return redirect()->route('crud.index');
+        return redirect()->route('crud.index')->withStatus(__('Deleted With Success and Sent Mail!'));
     }
 
     public function MailSend($sub, $mes, $id)
