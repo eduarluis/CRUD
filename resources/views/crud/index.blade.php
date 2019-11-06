@@ -5,14 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">
+                <div class="card-header text-center bg-info text-white">
                     List Test
-                    <div class="text-right">
-                        <a class="btn btn-info square" href="{{route('crud.create')}}">{{ __('Create') }}</a>
-                    </div>
                 </div>
-
+                
                 <div class="card-body text-center">
+                    <div class="text-right pb-2">
+                        <a class="btn btn-primary btn-sm square" href="{{route('crud.create')}}">{{ __('Add') }}</a>
+                    </div>
+
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
