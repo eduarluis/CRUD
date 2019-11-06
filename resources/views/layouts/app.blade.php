@@ -76,9 +76,25 @@
             </div>
         </nav>
 
+        <div class="container mt-2">
+            @if (session('status'))
+                <div class="row">
+                    <div class="col-sm-12">
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="">X</i>
+                        </button>
+                        <span>{{ session('status') }}</span>
+                    </div>
+                    </div>
+                </div>
+            @endif
+        </div>
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
 </body>
+
 </html>
