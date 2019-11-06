@@ -7,9 +7,14 @@
                 'placeholder' => 'Enter your chars, max 32',
                 'maxlength' => 32,
                 'minlength' => 1,
-                'required' => true
             ])
         }}
+    
+        @error('max32')
+            <span class='text-danger' role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
 </div>
 <div class="row mt-2">                            
@@ -21,9 +26,13 @@
                 'placeholder' => 'Enter your chars, max 65535',
                 'maxlength' => 65535,
                 'minlength' => 1,
-                'required' => true
             ]) 
         !!}
+        @error('max65535')
+            <span class="text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
 </div>
 

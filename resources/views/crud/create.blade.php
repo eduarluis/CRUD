@@ -9,9 +9,9 @@
 
                 <div class="card-body">
                     <div class="container">
-                        {!! Form::open(['route' => 'home.store', 'method' => 'POST']) !!}
+                        {!! Form::open(['route' => 'crud.store', 'method' => 'POST']) !!}
                             {!! Form::token() !!}
-                            @include('home.partials.form')
+                            @include('crud.partials.form')
                         {!! Form::close() !!}
                     </div>
                 </div>

@@ -9,9 +9,9 @@
 
                 <div class="card-body">
                     <div class="container">
-                        {!! Form::model($home, ['route' => ['home.update', $home], 'method' => 'PUT']) !!}
+                        {!! Form::model($home, ['route' => ['crud.update', $home], 'method' => 'PUT']) !!}
                             {!! Form::token() !!}
-                            @include('home.partials.form')
+                            @include('crud.partials.form')
                         {!! Form::close() !!}
                     </div>
                 </div>

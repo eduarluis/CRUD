@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HomeRequest extends FormRequest
+class CrudRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,16 @@ class HomeRequest extends FormRequest
     public function rules()
     {
         return [
-            'max32' => 'required|',
-            'max65535' => 'required|',
+            'max32' => 'required|max:32|min:1',
+            'max65535' => 'required|max:65535|min:1',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'max32.required' => 'The field is required and must have a maximum of 32 characters',
+            'max65535.required' => 'The field is required and must have a maximum of 65535 characters',
         ];
     }
 }

@@ -12,8 +12,11 @@
 */
 
 Route::get('/', function () {
-    $lists = App\Home::all();
-    return view('home', compact('lists'));
+    return view('auth.login');
 });
 
-Route::resource('/home', 'HomeController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/crud', 'CrudController');
